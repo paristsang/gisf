@@ -1,0 +1,47 @@
+body, html {
+    font-family: Arial, sans-serif;
+    padding: 10px;
+    background-color: #f4f4f4;
+}
+
+#map {
+    width: 100%;
+    margin-bottom: 10px;
+	.glowing-marker .icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: red;
+    box-shadow: 0 0 10px 5px red;
+    animation: glow 1s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px 5px red;
+    }
+    to {
+        box-shadow: 0 0 20px 10px red;
+    }
+}
+}
+
+input, textarea {
+    width: 100%;
+    margin: 8px 0;
+    padding: 8px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+

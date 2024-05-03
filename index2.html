@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waypoint Recorder with Polygon Drawing</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css"/>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
+</head>
+<style>
+.glowing-marker .icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background-color: red;
+    box-shadow: 0 0 2px 2px red;
+    animation: glow 1s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 5px 2px red;
+    }
+    to {
+        box-shadow: 0 0 2px 1px blue;
+    }
+}
+
+#video, #photo {
+    border: 1px solid black;
+}
+
+button {
+    padding: 10px;
+    margin: 5px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #0056b3;
+}
+
+
+</style>
+
+<body>
+    <div id="map" style="height: 400px;"></div>
+    <form id="dataForm">
+        <label for="latitude">Latitude:</label>
+        <input type="text" id="latitude" name="latitude" readonly><br>
+        <label for="longitude">Longitude:</label>
+        <input type="text" id="longitude" name="longitude" readonly><br>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description"></textarea><br>
+        <button type="button" onclick="addWaypoint()">Record Waypoint</button>
+        <button type="button" onclick="downloadWaypoints()">Download Waypoints</button>
+		<button type="button" onclick="downloadGeoJSON()">Download Polygons</button>
+		<button type="button" onclick="downloadPathAsGeoJSON()">Download Path</button>
+
+<button type="button" onclick="enableLocation()">Enable Location</button>
+<button type="button" onclick="startCamera()">Start Camera</button>
+<video id="video" width="320" height="240" autoplay></video>
+<button type="button" onclick="captureImage()">Capture Image</button>
+<canvas id="canvas" width="320" height="240" style="display:none;"></canvas>
+<img id="photo" src="#" alt="Captured Image" style="display:none;"/>
+
+
+
+    </form>
+    <script src="script2.js"></script>
+</body>
+</html>
